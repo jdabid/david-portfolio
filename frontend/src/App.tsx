@@ -5,8 +5,13 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
+import AIChat from "./pages/AIChat";
+import Admin from "./pages/Admin";
+import { usePageTracking } from "./hooks/usePageTracking";
 
 function App() {
+  usePageTracking();
+
   return (
     <div className="min-h-screen flex flex-col bg-dark-950">
       <Navbar />
@@ -16,6 +21,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/chat" element={<AIChat />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </main>
       <Footer />

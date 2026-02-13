@@ -1,0 +1,64 @@
+backend:
+  python:
+    level: 95
+    evidence:
+      - "Built production FastAPI services with async SQLAlchemy"
+      - "Implemented CQRS pattern with mediator dispatch"
+      - "Celery task queues with retry and exponential backoff"
+  fastapi:
+    level: 90
+    evidence:
+      - "App factory pattern with lifespan events"
+      - "WebSocket endpoints for real-time streaming"
+      - "Dependency injection with get_db session management"
+  sqlalchemy:
+    level: 85
+    evidence:
+      - "Async engine with asyncpg driver"
+      - "Declarative models with mixins (UUID, Timestamp)"
+      - "Eager loading with selectinload to avoid N+1"
+  celery:
+    level: 80
+    evidence:
+      - "Task routing to specific queues"
+      - "Exponential backoff retry policies"
+      - "task_acks_late for at-least-once delivery"
+
+devops:
+  docker:
+    level: 90
+    evidence:
+      - "Multi-stage builds (3 stages: base, dev, prod)"
+      - "Docker Compose with healthchecks and dependency ordering"
+      - "Non-root user in production containers"
+  kubernetes:
+    level: 80
+    evidence:
+      - "Deployments, StatefulSets, Services, Ingress"
+      - "HPA autoscaling, PDB, resource limits"
+      - "Helm charts with per-environment values"
+  ci_cd:
+    level: 85
+    evidence:
+      - "GitHub Actions pipelines for lint, test, build, deploy"
+      - "Security scanning with Trivy"
+      - "Multi-stage deployment with manual approval for prod"
+
+architecture:
+  cqrs:
+    description: "Command Query Responsibility Segregation"
+    evidence:
+      - "Separate command/query handlers via mediator pattern"
+      - "Read path optimized with Redis cache"
+      - "Write path with domain events to RabbitMQ"
+  event_driven:
+    description: "Event-Driven Architecture"
+    evidence:
+      - "Domain events published via aio-pika to RabbitMQ"
+      - "Celery workers consume events asynchronously"
+      - "Dead letter queue for failed messages"
+  vertical_slices:
+    description: "Vertical Slice Architecture"
+    evidence:
+      - "Features organized by domain (profile, projects, contact, ai_chat, analytics)"
+      - "Each slice is self-contained with models, schemas, commands, queries, router"

@@ -32,6 +32,12 @@ class Settings(BaseSettings):
     rabbitmq_password: str = "guest"
     rabbitmq_vhost: str = "/"
 
+    # AI / LLM
+    anthropic_api_key: str = ""
+    llm_model: str = "claude-sonnet-4-20250514"
+    chroma_persist_dir: str = "./data/chromadb"
+    knowledge_base_dir: str = "./data/knowledge"
+
     @property
     def database_url(self) -> str:
         return (

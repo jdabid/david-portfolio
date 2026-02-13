@@ -24,6 +24,10 @@ async def lifespan(app: FastAPI):
     import app.features.projects.queries.list_projects  # noqa: F401
     import app.features.projects.queries.get_project_detail  # noqa: F401
     import app.features.contact.commands.send_message  # noqa: F401
+    import app.features.ai_chat.commands.send_chat  # noqa: F401
+    import app.features.ai_chat.queries.get_chat_history  # noqa: F401
+    import app.features.analytics.commands.track_visit  # noqa: F401
+    import app.features.analytics.queries.get_stats  # noqa: F401
 
     await redis_client.ping()
     yield
@@ -59,10 +63,14 @@ def create_app() -> FastAPI:
     from app.features.profile.router import router as profile_router
     from app.features.projects.router import router as projects_router
     from app.features.contact.router import router as contact_router
+    from app.features.ai_chat.router import router as ai_chat_router
+    from app.features.analytics.router import router as analytics_router
 
     app.include_router(profile_router)
     app.include_router(projects_router)
     app.include_router(contact_router)
+    app.include_router(ai_chat_router)
+    app.include_router(analytics_router)
 
     return app
 
