@@ -1,0 +1,63 @@
+{
+  "personal": {
+    "full_name": "David Castro",
+    "headline": "Python Developer & DevOps Engineer",
+    "email": "david@portfolio.dev",
+    "location": "Remote",
+    "summary": "Python Developer and DevOps Engineer with expertise in building scalable backend systems, event-driven architectures, and cloud-native infrastructure. Experienced with FastAPI, Docker, Kubernetes, and CI/CD pipelines."
+  },
+  "skills": [
+    {"name": "Python", "category": "Backend", "level": 95},
+    {"name": "FastAPI", "category": "Backend", "level": 90},
+    {"name": "SQLAlchemy", "category": "Backend", "level": 85},
+    {"name": "Celery", "category": "Backend", "level": 80},
+    {"name": "PostgreSQL", "category": "Backend", "level": 85},
+    {"name": "Docker", "category": "DevOps", "level": 90},
+    {"name": "Kubernetes", "category": "DevOps", "level": 80},
+    {"name": "Helm", "category": "DevOps", "level": 75},
+    {"name": "GitHub Actions", "category": "DevOps", "level": 85},
+    {"name": "Terraform", "category": "DevOps", "level": 70},
+    {"name": "React", "category": "Frontend", "level": 75},
+    {"name": "TypeScript", "category": "Frontend", "level": 75},
+    {"name": "Tailwind CSS", "category": "Frontend", "level": 80},
+    {"name": "Redis", "category": "Tools", "level": 85},
+    {"name": "RabbitMQ", "category": "Tools", "level": 80},
+    {"name": "Prometheus", "category": "Tools", "level": 70},
+    {"name": "Grafana", "category": "Tools", "level": 70},
+    {"name": "Nginx", "category": "Tools", "level": 80}
+  ],
+  "experience": [
+    {
+      "company": "Tech Company",
+      "role": "Python Backend Developer",
+      "description": "Designed and implemented event-driven microservices using FastAPI, Celery, and RabbitMQ. Reduced API response times by 40% through Redis caching and query optimization.",
+      "start_date": "2023-01",
+      "end_date": "Present"
+    },
+    {
+      "company": "Startup Inc",
+      "role": "DevOps Engineer",
+      "description": "Containerized applications with Docker, deployed to Kubernetes clusters, and built CI/CD pipelines with GitHub Actions. Achieved 99.9% uptime.",
+      "start_date": "2021-06",
+      "end_date": "2022-12"
+    }
+  ],
+  "education": [
+    {
+      "institution": "University",
+      "degree": "Bachelor's in Computer Science",
+      "field": "Software Engineering",
+      "start_date": "2017",
+      "end_date": "2021"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Portfolio CV App",
+      "description": "Full-stack portfolio application demonstrating FastAPI + React + CQRS + Docker + Kubernetes + AI Chat. Features event-driven architecture with RabbitMQ, Redis caching, Celery workers, and a RAG-based AI assistant.",
+      "technologies": ["Python", "FastAPI", "React", "Docker", "Kubernetes", "Helm", "Redis", "RabbitMQ", "LangChain", "ChromaDB"]
+    }
+  ],
+  "certifications": [],
+  "languages": ["Spanish (Native)", "English (Professional)"]
+}

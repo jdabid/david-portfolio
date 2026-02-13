@@ -66,6 +66,38 @@ export interface ContactMessage {
   message: string;
 }
 
+// AI Chat
+export interface ChatMessage {
+  id: string;
+  role: "user" | "assistant";
+  content: string;
+  created_at: string;
+}
+
+export interface ChatResponse {
+  session_id: string;
+  message: ChatMessage;
+}
+
+// Analytics
+export interface DailyStats {
+  date: string;
+  total_visits: number;
+  unique_visitors: number;
+  top_page: string;
+  contact_messages: number;
+  chat_sessions: number;
+}
+
+export interface DashboardData {
+  total_visits: number;
+  unique_visitors: number;
+  total_messages: number;
+  total_chats: number;
+  daily_stats: DailyStats[];
+  top_pages: { path: string; count: number }[];
+}
+
 export interface ApiResponse<T> {
   data: T | null;
   loading: boolean;

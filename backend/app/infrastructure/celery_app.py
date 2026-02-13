@@ -4,6 +4,7 @@ Uses RabbitMQ as broker and Redis as result backend.
 """
 
 from celery import Celery
+from celery.schedules import crontab
 
 from app.config import settings
 
@@ -33,10 +34,20 @@ celery_app.conf.update(
     # Task routing
     task_routes={
         "contact.send_email": {"queue": "email.send"},
+        "analytics.aggregate_daily": {"queue": "analytics.aggregate"},
     },
 
     # Auto-discover tasks in feature slices
     include=[
         "app.features.contact.tasks.send_email",
+        "app.features.analytics.tasks.aggregate_metrics",
     ],
+
+    # Celery Beat schedule — periodic tasks
+    beat_schedule={
+        "aggregate-daily-metrics": {
+            "task": "analytics.aggregate_daily",
+            "schedule": crontab(minute=0),  # Every hour at :00
+        },
+    },
 )
