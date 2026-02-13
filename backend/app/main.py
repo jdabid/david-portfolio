@@ -16,7 +16,15 @@ from app.infrastructure.redis import redis_client
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Manage startup and shutdown events."""
-    # Startup
+    # Startup — import handlers to register them with the mediator
+    import app.features.profile.commands.update_profile  # noqa: F401
+    import app.features.profile.queries.get_profile  # noqa: F401
+    import app.features.profile.queries.get_skills  # noqa: F401
+    import app.features.projects.commands.create_project  # noqa: F401
+    import app.features.projects.queries.list_projects  # noqa: F401
+    import app.features.projects.queries.get_project_detail  # noqa: F401
+    import app.features.contact.commands.send_message  # noqa: F401
+
     await redis_client.ping()
     yield
     # Shutdown
@@ -46,6 +54,15 @@ def create_app() -> FastAPI:
     @app.get("/api/health", tags=["infra"])
     async def health_check():
         return {"status": "healthy", "service": settings.app_name}
+
+    # Register feature routers
+    from app.features.profile.router import router as profile_router
+    from app.features.projects.router import router as projects_router
+    from app.features.contact.router import router as contact_router
+
+    app.include_router(profile_router)
+    app.include_router(projects_router)
+    app.include_router(contact_router)
 
     return app
 

@@ -20,7 +20,7 @@ services:
       - ../../frontend/index.html:/app/index.html
     command: npm run dev
     ports:
-      - "3000:3000"
+      - "4173:3000"
 
   worker:
     volumes:
